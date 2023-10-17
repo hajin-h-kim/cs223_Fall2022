@@ -1,0 +1,42 @@
+#!/bin/bash
+make
+echo "README: To get more information on each test, see each test just above main."
+./Q4 1 > student_out
+printf "TEST 1\n1 \n" > expected_out
+DIFF=$(diff student_out expected_out)
+if [ "$DIFF" != "" ]
+then
+	echo "TEST 1 FAIL (adding one value to array)"
+else
+	echo "TEST 1 PASS (adding one value to array)"
+fi
+
+./Q4 2 > student_out
+printf "TEST 2\n3 \n3 7 \n3 7 10 \n" > expected_out
+DIFF=$(diff student_out expected_out)
+if [ "$DIFF" != "" ]
+then
+	echo "TEST 2 FAIL (handling a resize)"
+else
+	echo "TEST 2 PASS (handling a resize)"
+fi
+
+./Q4 3 > student_out
+printf "TEST 3\n3 \n\n3 \n3 7 \n3 7 10 \n" > expected_out
+DIFF=$(diff student_out expected_out)
+if [ "$DIFF" != "" ]
+then
+	echo "TEST 3 FAIL (handling a resize when front != 0)"
+else
+	echo "TEST 3 PASS (handling a resize when front != 0)"
+fi
+
+./Q4 4 > student_out
+printf "TEST 4\n3 \n3 7 \n7 \n7 10 \n7 \n7 3 \n7 3 7 \n7 3 \n7 3 10 \n7 3 10 10 \n7 3 10 10 10 \n" > expected_out
+DIFF=$(diff student_out expected_out)
+if [ "$DIFF" != "" ]
+then
+	echo "TEST 4 FAIL (many adds/removes)"
+else
+	echo "TEST 4 PASS (many adds/removes)"
+fi

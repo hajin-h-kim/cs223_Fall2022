@@ -1,0 +1,98 @@
+Download the Zip file containing the starter code for the coding
+problems.  The problems count for 60 points total (for a total of 120
+for the entire exam).
+
+When expanded, there will be one directory per problem.  Each
+directory will contain a makefile for that problem and the skeleton of
+a single .c file in which you are to write your solution.  There may
+be supporting functions.  For ADTs, the supporting functions may not
+give a complete implementation of the ADT, but there will be enough to
+test your solutions.  You may not change the supporting functions, but
+you should read them if you need to better understand how your
+function is supposed to work in conjunction with them.
+
+The parts of the files where you must write your solutions will be
+marked clearly.
+
+Final submissions should consist of the individual .c files submitted
+as assignment 99 on the Zoo (so change to each directory in turn and
+run /c/cs223/bin/submit 99 qN.c where N is the question number.  If
+you are working on your own machines, make sure you leave enough time
+to transfer and submit your files.
+
+Each file will have a main function that runs a few simple tests.  You
+can determine whether your code passes or fails the tests by running
+your program and comparing (by eye) the output to the expected output
+given in comments in main.  As a convenience, there is also a test
+script that you can run with ./testit that runs the tests and compares
+the results to the expected output.  If you can't run the test script
+or if that script breaks for any reason, you can still manually
+compare your results to the expected results.
+
+You may (and should) add other tests so you have confidence that your
+code works in all cases.  Whatever tests you add to main will be
+discarded for grading.
+
+ 
+
+-- Q1 --
+
+Write a function that takes three arguments: the name of an input
+file, the name of an output file, and a pointer to a function that
+takes two ints and returns an int.  The function reads pairs of
+integers from the input file with the given name, applies the given
+function to them, and writes the result to the output file with the
+given name.
+
+The output file will contain one integer per line with no whitespace
+other then the newline at the end of each line.
+
+The input will contain one pair of integers per line, with any number
+of whitespace characters except for newlines separating the two
+integers and preceding or following the integers.
+
+You may assume that the input and output filenames refer to different
+files. If the output file already exists then it is truncated so its
+previous contents are replaced with the new output. If there is an
+error opening either the input file or the output file then there is
+no output. If the input is not as specified then the behavior is
+undefined, but the function must not crash or hang.
+
+ 
+
+-- Q2 --
+
+Complete the function deck_draw_n in an array-based implementation of
+deck.  This function takes as two arguments: a pointer to the deck and
+n, and returns pointer to the first n cards off the top of the deck,
+removing those cards from the deck in the process.
+
+If the number of requested cards exceeds the number of cards in the
+deck, a NULL pointer is returned and there is no effect on the deck.
+
+Drawn cards should reside at the same memory address as when they were
+added to the deck and ownership of the returned cards is transferred
+to the caller.
+
+ 
+
+-- Q3 --
+
+Repeat Q2, except this time the deck is implemented using a linked list.
+
+ 
+
+-- Q4 --
+
+Complete the definition of the wraparound_add_end function as part of
+the wraparound array ADT.  A wraparound array allows list-like
+operations, including adding and removing from the front and end.
+Adding/removing from the front/end should work in O(1) amortized time.
+
+The wraparound_add_end function takes two arguments: a pointer to a
+wraparound array and a value v (of type int), and returns the
+wraparound array after modifying it to add of a copy of v to the end
+of the wraparound array.
+
+If there are any issues with space allocation, a NULL pointer is
+returned and there is no effect on the wraparound array.

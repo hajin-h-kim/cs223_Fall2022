@@ -1,0 +1,20 @@
+#!/bin/bash
+make
+./Q1
+printf "6\n80\n" > expected_out
+DIFF=$(diff products.txt expected_out)
+if [ "$DIFF" != "" ]
+then
+	echo "TEST 1 FAIL (products)"
+else
+	echo "TEST 1 PASS (products)"
+fi
+
+printf "3\n10\n" > expected_out
+DIFF=$(diff maximums.txt expected_out)
+if [ "$DIFF" != "" ]
+then
+	echo "TEST 2 FAIL (maximums)"
+else
+	echo "TEST 2 PASS (maximums)"
+fi
